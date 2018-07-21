@@ -1,0 +1,9 @@
+<div class="container-fluid">
+    <nav class="nav nav-pills justify-content-center navbar-light" style="background-color: #e3f2fd;">
+            <a class="nav-link btn-lg" routerLink="/main" routerLinkActive="active">Main</a>
+            <a class="nav-link btn-lg" routerLink="/about" routerLinkActive="active">About</a>
+            <button (click)="logoutFromGoogle()" *ngIf="_aS.isLoggedIn" class="btn btn-danger btn-lg">LogOut!</button>
+            <button (click)="loginGoogle()" *ngIf="!_aS.isLoggedIn" class="btn btn-primary btn-lg">Google login!</button>
+    </nav>
+<router-outlet></router-outlet>
+</div>

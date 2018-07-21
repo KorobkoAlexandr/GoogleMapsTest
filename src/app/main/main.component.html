@@ -1,0 +1,14 @@
+<div  class="alert alert-success" role="alert">
+    <h1 class="text-center">Welcome to Google Maps!!!</h1>
+</div>
+<div class="alert-dark text-center">
+    <button type="button" class="btn btn-info btn-lg" (click)="saveMarkers()">Save Markers</button>
+    <button type="button" class="btn btn-secondary btn-lg" (click)="showDbMarkers()">Show Markers from DB</button>
+    <button type="button" class="btn btn-danger btn-lg" (click)="clearMapMarkers()">Clear Map</button>
+    <button type="button" class="btn btn-danger btn-lg" (click)="clearDbMarkers()">Delete Markers</button>
+    <select class="custom-select custom-select-lg" title="places">
+        <option selected>Pick places to show</option>
+        <option (click)="showNearByPlace(place.type)" *ngFor="let place of list" value={{place.type}}>{{ place.type | titlecase}}</option>
+    </select>
+</div>
+<div id="map" #map></div>
