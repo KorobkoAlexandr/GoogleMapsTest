@@ -1,6 +1,8 @@
-<div class="alert alert-danger " role="alert">
+<div class="alert alert-danger " *ngIf="!_aS.isLoggedIn" role="alert">
     <h1 class="text-center">You need to be registered to see more stuff</h1>
+    <img src="../../assets/sad.png" class=".img-fluid rounded mx-auto d-block" alt="Not signed">
 </div>
-<div class="alert-danger">
-    <img src="../../assets/2.png" class=".img-fluid rounded mx-auto d-block" alt="...">
+<div class="alert alert-success" *ngIf="_aS.isLoggedIn" role="alert">
+    <h1 class="text-center">Now you can discover the pages!</h1>
+    <img src="../../assets/smile.png" class=".img-fluid rounded mx-auto d-block" alt="Singed in">
 </div>

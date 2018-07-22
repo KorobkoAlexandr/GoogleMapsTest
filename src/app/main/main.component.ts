@@ -3,6 +3,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import {Observable} from 'rxjs/internal/Observable';
 import {} from '@types/googlemaps';
 import {Place} from './Place';
+import {AuthService} from '../auth.service';
 
 @Component({
     selector: 'app-main',
@@ -22,8 +23,10 @@ export class MainComponent implements OnInit {
     myLocation: any;
     service: any;
     places = [];
+    userId: string;
 
-    constructor(private db: AngularFireDatabase) {
+    constructor(private db: AngularFireDatabase, private _aS: AuthService) {
+        this._aS.authInfo.subscribe(user => this.userId = user.uid);
     }
 
     ngOnInit() {
@@ -108,12 +111,12 @@ export class MainComponent implements OnInit {
     saveMarkers() {
         this.markers.map((marker) => {
             const pos = {lat: marker.position.lat(), lng: marker.position.lng()};
-            this.db.list('markers').push(pos);
+            this.db.list(this.userId + '/markers').push(pos);
         });
     }
 
     showDbMarkers() {
-        this.db.list('markers')
+        this.db.list(this.userId + '/markers')
             .valueChanges()
             .subscribe(markers => markers.map(pos => {
                 const latLng = {lat: pos['lat'], lng: pos['lng']};
@@ -133,7 +136,8 @@ export class MainComponent implements OnInit {
     }
 
     clearDbMarkers() {
-        this.db.list('markers').remove();
-        this.clearMapMarkers()
+        this.db.list(this.userId + 'markers').remove();
+        this.clearMapMarkers();
+        this.markers = [];
     }
 }

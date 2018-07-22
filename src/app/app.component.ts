@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from './auth.service';
 import {Router} from '@angular/router';
-import {AngularFireAuth} from 'angularfire2/auth';
 
 @Component({
     selector: 'app-root',
@@ -11,8 +10,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 export class AppComponent {
 
     constructor(public _aS: AuthService,
-                private router: Router,
-                private afAuth: AngularFireAuth) {
+                private router: Router) {
     }
 
     logoutFromGoogle() {
