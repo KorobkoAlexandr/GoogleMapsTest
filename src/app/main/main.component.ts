@@ -63,7 +63,7 @@ export class MainComponent implements OnInit {
         this.map.addListener('center_changed', () => {
             this.myLocation = this.map.getCenter();
         });
-            this.service = new google.maps.places.PlacesService(this.map);
+        this.service = new google.maps.places.PlacesService(this.map);
     }
 
     //--------------------------------------------------------------------------
@@ -125,18 +125,18 @@ export class MainComponent implements OnInit {
                     map: this.map
                 });
                 this.markers.push(marker);
-                }));
+            }));
     }
 
-    clearMapMarkers(){
-        this.markers.map( marker => {
+    clearMapMarkers() {
+        this.markers.map(marker => {
             marker.setMap(null);
         });
         this.markers = [];
     }
 
     clearDbMarkers() {
-        this.db.list(this.userId + 'markers').remove();
+        this.db.list(this.userId + '/markers').remove();
         this.clearMapMarkers();
         this.markers = [];
     }

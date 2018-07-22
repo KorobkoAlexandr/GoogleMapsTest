@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   fireConfig: {
-      apiKey: 'AIzaSyDbuUQ50lSp1zkB7F8NH0Jb7cx8hpCNMFA',
-      authDomain: 'vine-app.firebaseapp.com',
-      databaseURL: 'https://vine-app.firebaseio.com',
-      projectId: 'vine-app',
-      storageBucket: 'vine-app.appspot.com',
-      messagingSenderId: '401477327695'
+      apiKey: "AIzaSyA4HHi1GfmWzL0wnPGMkAMykhFuJCEiO6Q",
+      authDomain: "place-map-test.firebaseapp.com",
+      databaseURL: "https://place-map-test.firebaseio.com",
+      projectId: "place-map-test",
+      storageBucket: "place-map-test.appspot.com",
+      messagingSenderId: "202486431196"
   }
 };
 
